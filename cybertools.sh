@@ -16,11 +16,14 @@ tools=(
     "dirb"
     "fcrackzip"
     "enum4linux"
+    "burpsuite"
 )
 
 # 1. Atualizar pacotes
 echo "Atualizando pacotes..."
 sudo apt update
+
+sudo apt -y upgrade
 
 # 2. Instalar as ferramentas
 echo "Instalando ferramentas..."
@@ -43,4 +46,5 @@ if ! sudo grep -q 'root\\\[\\e[38;5;124m\\]' "$ROOT_SHELL_CONFIG"; then
     echo "PS1='\\[\\e[38;5;83m\\]\\[\\e[38;5;124m\\]root\\[\\e[0m\\] \\[\\e[38;5;248m\\]\\W\\[\\e[0m\\] \\[\\e[38;5;255m\\]#\\[\\e[0m\\]'" | sudo tee -a "$ROOT_SHELL_CONFIG"
 fi
 
-echo "Configurações concluídas! Reinicie o shell para aplicar as mudanças."
+echo "Configurações concluídas!"
+source .bashrc
